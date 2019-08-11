@@ -1,0 +1,47 @@
+apps:
+- name: word
+  script: app.js
+#   out_file: /dev/null
+#   error_file: /dev/null
+  cwd: D:\nodeproject\stickearn-api\word
+  exec_mode: cluster
+  instances: 1
+  env:
+    SALT : 10
+    PORT : 4002
+    UV_THREADPOOL_SIZE: 12
+    PUTTU_IP: 127.0.0.1
+    REDIS_CON: localhost:6379
+    MONGO_URL: mongodb://localhost:27017/stickearn
+    NODE_ENV: development
+- name: user
+  script: app.js
+#   out_file: /dev/null
+#   error_file: /dev/null
+  cwd: D:\nodeproject\stickearn-api\user
+  exec_mode: cluster
+  instances: 1
+  env:
+    SALT : 10
+    PORT : 4001
+    UV_THREADPOOL_SIZE: 12
+    PUTTU_IP: 127.0.0.1
+    SECREET: 5tIop78379
+    REDIS_CON: localhost:6379
+    MONGO_URL: mongodb://localhost:27017/stickearn
+    NODE_ENV: development
+- name: score
+  script: app.js
+#   out_file: /dev/null
+#   error_file: /dev/null
+  cwd: D:\nodeproject\stickearn-api\score
+  exec_mode: cluster
+  instances: 1
+  env:
+    SALT : 10
+    PORT : 4003
+    UV_THREADPOOL_SIZE: 12
+    PUTTU_IP: 127.0.0.1
+    REDIS_CON: localhost:6379
+    MONGO_URL: mongodb://localhost:27017/stickearn
+    NODE_ENV: development
